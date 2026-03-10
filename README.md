@@ -15,6 +15,8 @@ Then start the Docker containers:
 docker compose up -d
 ```
 
+Wait around 5 minutes until the composer has installed all necessary packages.
+
 Once everything is running, open Postman (or any HTTP client) and make a GET request to:
 
 ```bash
