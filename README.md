@@ -17,31 +17,43 @@ docker compose up -d
 
 Once everything is running, open Postman (or any HTTP client) and make a GET request to:
 
+```bash
 http://localhost:8000/api/v1/health-check
+```
 
 Make sure to include the following headers:
 
+```bash
 Accept: application/json
 X-Owner: 123e4567-e89b-12d3-a456-426614174000
+```
 
 If both MySQL and Redis are running, the API will respond with:
 
+```bash
 {
 "db": true,
 "cache": true
 }
+```
 
 To simulate MySQL being down, stop the MySQL container:
 
+```bash
 docker compose stop db
+```
 
+```bash
 {
 "db": false,
 "cache": true
 }
+```
 
-If you forget to provide X-Owner token you will get:
+If you forget to provide the X-Owner token, you will get:
 
+```bash
 {
 "error" => "Invalid or missing X-Owner header"
 }
+```
